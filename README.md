@@ -203,12 +203,6 @@ pip install mcp aiosqlite
 2. Đảm bảo đã lưu config (Ctrl + S)
 3. Restart Antigravity
 
-## Ghi chú
-
-- Project này được phát triển như một bài tập về **Custom MCP Server**
-- Sử dụng **Antigravity** để tăng tốc quá trình phát triển
-- Code được tối ưu hóa cho môi trường Antigravity IDE
-
 ## License
 
 MIT License - Tự do sử dụng cho mục đích học tập và phát triển.
