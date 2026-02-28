@@ -167,23 +167,19 @@ CREATE TABLE todos (
 
 ## Luồng hoạt động
 
-```
-User (Antigravity Chat)
-    ↓
-    "Thêm task: Học Python"
-    ↓
-Agent nhận lệnh
-    ↓
-Gọi add_task() từ MCP Server
-    ↓
-server.py xử lý
-    ↓
-INSERT vào SQLite database
-    ↓
-Trả về kết quả
-    ↓
-Agent hiển thị: "Đã thêm task #1: Học Python"
-```
+![Sơ đồ luồng hoạt động Todo MCP Server](images/flowchart.png)
+
+### Mô tả chi tiết:
+
+1. **User gửi Prompt** - Người dùng nhập lệnh bằng ngôn ngữ tự nhiên trong Antigravity Chat
+2. **Tham chiếu Config** - AI Agent kiểm tra file `mcp_config.json` để xác định server cần gọi
+3. **Chuyển đổi thành lệnh MCP** - Agent phân tích và chuyển đổi prompt thành lệnh MCP chuẩn
+4. **Gọi Tool MCP** - Agent gọi tool tương ứng từ MCP Server (add_task, list_tasks, complete_task, delete_task)
+5. **Thực thi Logic Python** - File `server.py` xử lý logic nghiệp vụ
+6. **Tương tác Cơ sở dữ liệu** - Server thực hiện các thao tác CRUD với SQLite database (`todos.db`)
+7. **Phản hồi Dữ liệu** - Database trả về kết quả thực thi
+8. **Phản hồi Lệnh gọi** - Server trả kết quả cho Agent
+9. **Hiển thị Phản hồi** - Agent format và hiển thị kết quả cho người dùng
 
 ## Troubleshooting
 
